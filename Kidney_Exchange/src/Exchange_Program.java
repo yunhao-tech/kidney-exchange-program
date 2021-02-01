@@ -8,15 +8,15 @@ public class Exchange_Program {
 	
 	int N; // number of patient-kidney pairs
 	HashSet<Patient> patients; // Core data.
-	HashSet<DonorPatientPair>list_of_DonorPatientPairs;
+	HashSet<DonorPatientPair>set_of_DonorPatientPairs;
 	Patient[] priority_list; // predefined order established by organ bank.
-	final Waiting_list W = new Waiting_list(); // in such an exchange program, the waiting list is unique.
+	final Waiting_list W = new Waiting_list(); // in each exchange program, the waiting list is unique.
 	
 	Exchange_Program(int N, HashSet<Patient> patients, Patient[] priority_list){
 		this.N = N;
 		this.patients = patients;
 		for (Patient p: patients) {
-			this.list_of_DonorPatientPairs.add(new DonorPatientPair(p));
+			this.set_of_DonorPatientPairs.add(new DonorPatientPair(p));
 		}
 		this.priority_list = priority_list;
 	}

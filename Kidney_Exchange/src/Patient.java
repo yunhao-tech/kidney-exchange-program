@@ -18,6 +18,10 @@ public class Patient {
 		this.preference_list = preference_list;
 	}
 	
+	boolean isMatched() {
+		return (this.opt != null);
+	}
+	
 	void set_donor(Kidney donor) {
 		this.opt = donor; //this patient is matched to this donor.
 		donor.assigned = true;

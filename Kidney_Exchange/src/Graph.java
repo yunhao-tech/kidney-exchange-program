@@ -2,11 +2,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 
-class Graph<V> {
+class Graph<V> { // this is an undirected graph
 	private HashMap<V, HashSet<V>> adj;
 
 	Graph() {
 		this.adj = new HashMap<V, HashSet<V>>();
+	}
+	
+	HashSet<V> getNeighbors(V u){
+		return this.adj.get(u);
 	}
 
 	void addVertex(V u) { // add a vertex
@@ -16,8 +20,7 @@ class Graph<V> {
 	void removeVertex(V u) { // remove a vertex
 		//firstly, remove all the connected edges 
 		for (V v : this.adj.get(u)) {
-			this.adj.get(u).remove(v);
-			this.adj.get(v).remove(u);
+			removeEdge(u,v);
 		}
 		//then remove the vertex from HashMap
 		this.adj.remove(u);
